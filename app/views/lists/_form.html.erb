@@ -1,0 +1,9 @@
+<%= form_for @list do |f| %>
+    <%= f.label :category %><br>
+    <%= f.text_field :category %><br>
+
+    <%= f.label :user %><br>
+    <%= f.collection_select :users, User.all, :id, :name %><br>
+
+    <%= f.submit %>
+<% end %>

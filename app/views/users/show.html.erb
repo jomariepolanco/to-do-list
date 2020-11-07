@@ -1,0 +1,22 @@
+<h1><%= @user.name %></h1>
+
+<h3>Team: <%= link_to @user.team.name, team_path(@user.team) %></h3>
+
+<h3>Lists: </h3>
+<ul>
+<% @user.lists.each do |list| %>
+    <li><%= link_to list.category, list_path(list) %></li>
+<% end %>
+</ul>
+
+<h3>Tasks: </h3>
+<%= link_to "Add Tasks", new_task_path %>
+<ul>
+<% @user.tasks.each do |task| %>
+    <li><%= link_to task.content, list_path(task.list) %></li>
+<% end %>
+</ul>
+
+<%= link_to "Edit User Page", edit_user_path %><br>
+<%= link_to "Back to User Homepage", users_path %>
+<%= button_to "Delete User", user_path(@user), method: :delete %>

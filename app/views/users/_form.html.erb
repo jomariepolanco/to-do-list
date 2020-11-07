@@ -1,0 +1,9 @@
+<%= form_for @user do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :team_id %><br>
+    <%= f.collection_select :team_id, @teams, :id, :name %><br>
+
+    <%= f.submit %>
+<% end %>
